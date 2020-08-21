@@ -8,7 +8,7 @@ export class MystyleDirective implements OnInit{
   @Input() c:string = 'blue';
   @Input() bg:string = '#eef';
 
-  constructor(el:ElementRef) {
+  constructor(el:ElementRef) { //这里加入这个引数，spec那里就会出错
     this.el = el;
   }
 

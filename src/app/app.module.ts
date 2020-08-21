@@ -8,6 +8,7 @@ import { HelloComponent } from './hello/hello.component';
 import { from } from 'rxjs';
 import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
+import { MycheckService } from './mycheck.Service';
 
 @NgModule({
   declarations: [
@@ -25,4 +26,9 @@ import { MystyleDirective } from './mystyle.directive';
   providers: [],
   bootstrap: [HelloComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private service:MycheckService){
+    service.name = 'hanako';
+  }
+ }

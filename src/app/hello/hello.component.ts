@@ -57,7 +57,7 @@ export class HelloComponent implements OnInit {
         this.now = new Date();
         this.styleClass = this.styleClass == 'red' ? '' : 'red';
         console.log(this.styleClass);
-      }, 1000);
+      }, 1000); //以秒单位实时更新
    }
 
   ngOnInit(): void {
@@ -81,7 +81,7 @@ export class HelloComponent implements OnInit {
     // this.message = 'one,two,three,four,five';
     this.message = ['one','two','three','four','five'];
     this.input1 = '';
-    this.message5 = this.service.hello('Taro');
+    this.message5 = this.service.hello('Taro'); //依存性注入
   }
 
   get name(){return this.myControlGroup.get('name');}
@@ -89,7 +89,7 @@ export class HelloComponent implements OnInit {
   get age(){return this.myControlGroup.get('age');}
 
   today(){
-    return this.now.toLocaleString();
+    return this.now.toLocaleString(); //显示时间
   }
 
   doClick(){
