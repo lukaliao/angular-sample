@@ -81,7 +81,7 @@ export class HelloComponent implements OnInit {
     // this.message = 'one,two,three,four,five';
     this.message = ['one','two','three','four','five'];
     this.input1 = '';
-    this.message5 = this.service.hello('Taro'); //依存性注入
+    this.message5 = this.service.hello(); //依存性注入
   }
 
   get name(){return this.myControlGroup.get('name');}

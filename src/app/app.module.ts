@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'; //追加
+import { RouterModule, Routes } from '@angular/router'; //追加
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,11 @@ import { from } from 'rxjs';
 import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
 import { MycheckService } from './mycheck.Service';
+
+const routes:Routes = [
+  {path:'hello', component: HelloComponent},
+  {path:'msg', component: MessageComponent},
+]
 
 @NgModule({
   declarations: [
@@ -21,10 +27,14 @@ import { MycheckService } from './mycheck.Service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(
+      routes,
+      {enableTracing:true}
+    )
   ],
   providers: [],
-  bootstrap: [HelloComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 

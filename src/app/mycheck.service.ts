@@ -18,7 +18,7 @@ export class MycheckService {
     this._name = name;
   }
 
-  hello(name:string){
-    return 'hello,' + name + '!!';
+  hello(){
+    return 'hello,' + this.name + '!!';
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { MycheckService } from '../mycheck.Service';
 
 @Component({
   selector: 'app-message',
@@ -10,9 +11,12 @@ export class MessageComponent implements OnInit {
   @Input() content:string[];
   @Output() action = new EventEmitter<MouseEvent>();
 
-  constructor() { }
+  constructor(private service:MycheckService) {
+    this.content = [];
+   }
 
   ngOnInit(): void {
+    this.content.push(this.service.hello());
   }
 
   doAction(event){
@@ -20,7 +24,8 @@ export class MessageComponent implements OnInit {
   }
 
   push(item:string){
-    this.content.push(item);
+    this.service.name = item;
+    this.content.push(this.service.hello());
   }
 
   pop(){
