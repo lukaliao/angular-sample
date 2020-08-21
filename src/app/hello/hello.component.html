@@ -1,0 +1,97 @@
+<div id="body">
+    <h1>{{title}}</h1>
+    <p>{{today()}}</p> 
+    <p [class] = "styleClass">{{message1}}</p>
+
+    <p [style.font-size.pt] = "36" [style.color] = "'#F00'">{{message2}}</p>
+    <p [style.font-size.pt] = "28" [style.color] = "'#D99'">{{message2}}</p>
+    <p [style.font-size.pt] = "20" [style.color] = "'#Ecc'">{{message2}}</p>
+    
+    <button (click) = "doClick()">Click</button>
+    <input type = "text" #field1 (keyup) = "doType(field1.value)" />
+
+    <p *ngIf= "visible" (click)= "doClick()" class = "red"> This is TRUE message.</p>
+    <p *ngIf= "visible == false" (click)= "doClick()" class = "red"> This is FALSE message.</p>
+
+    <ul>
+        <li *ngFor = "let item of data">{{item}}</li>
+    </ul>
+
+    <div [ngSwitch] = "switch">
+        <p *ngSwitchCase = "'one'">一</p>
+        <p *ngSwitchCase = "'two'">二</p>
+        <p *ngSwitchCase = "'three'">三</p>
+        <p *ngSwitchDefault>零</p>
+    </div>
+    <div>
+        <select #sel (change) = "doSelect(sel.value)">
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+        </select>
+    </div>
+
+    <p [ngClass] = "nowClass">ngClass:{{message4}}</p>
+    <input type = "checkbox" #ck1 (change) = "check(ck1.checked, ck2.checked, ck3.checked);">Thin
+    <input type = "checkbox" #ck2 (change) = "check(ck1.checked, ck2.checked, ck3.checked);">Large
+    <input type = "checkbox" #ck3 (change) = "check(ck1.checked, ck2.checked, ck3.checked);">Frame
+
+    <p [ngStyle] = "nowStyle">ngStyle:{{styleMessage}}</p>
+    <input type = "text" #in1 (change) = "checkStyle(in1.value, in2.value, in3.value);"><br>
+    <input type = "text" #in2 (change) = "checkStyle(in1.value, in2.value, in3.value);"><br>
+    <input type = "text" #in3 (change) = "checkStyle(in1.value, in2.value, in3.value);"><br>
+
+    <p>TYPE:{{text1}}</p>
+    <input type = "text" [(ngModel)] = "text1" />
+
+    <p>TYPE:{{myControl.value}}</p>
+    <input type = "text" [(formControl)] = "myControl" />
+
+    <p>{{message3}}</p>
+
+    <form [formGroup] = "myControlGroup" (ngSubmit) = "onSubmit()">
+        <table>
+            <tr><th>Name</th><td>
+                <div *ngIf = "name.errors != null && name.errors.required != null">
+                    Nameは必須項目です。</div>
+                <div *ngIf = "name.errors != null && name.errors.alpha != null">
+                    半角アルファベットのみ可です。</div>
+                <div><input type = "text" formControlName = "name" ></div>
+            </td></tr>
+            <tr><th>Mail</th><td>
+                <div *ngIf = "mail.errors != null && mail.errors.email != null">
+                    メールアドレスが必要です。</div>
+                <div><input type = "text" formControlName = "mail" ></div>
+            </td></tr>
+            <tr><th>Age</th><td>
+                <div *ngIf = "age.errors != null && age.errors.min != null">
+                    １歳以上を入力してください。</div>
+                <div *ngIf = "age.errors != null && age.errors.max != null">
+                    １５０歳以下を入力してください。</div>
+                <div *ngIf = "age.errors != null && age.errors.even != null">
+                    偶数のみ入力可です。</div>
+                <input type = "number" formControlName = "age" >
+            </td></tr>
+            <tr><th></th><td>
+                <input [disabled] = "myControlGroup.invalid" type = "submit" value = "click" >
+            </td></tr>
+        </table>
+    </form>
+
+    <!-- <app-message [content] = "message"></app-message> -->
+    <div>add item...</div>
+    <div>
+        <input type = "text" [(ngModel)] = "input1">
+        <button (click) = "push()">push</button>
+        <button (click) = "pop()">pop</button>
+    </div>
+    <hr>
+    <app-message [content] = "message"
+    (action) = "doClickMessage($event)"></app-message>
+
+    <p appMystyle>Directive</p>
+    <p appMystyle c = "white" bg = "red">Directive</p>
+
+    <p>{{message5}}</p>
+</div>
+

@@ -1,0 +1,10 @@
+<div class = "container">
+    <!-- <p class = "message">{{content}}</p> -->
+    <!-- <ul (click) = "doClick()">
+        <li class = "message" *ngFor = "let item of _content">{{item}}</li>
+    </ul> -->
+    <ul>
+        <li class = "message"  (click) = "doAction($event)" 
+        *ngFor = "let item of content">{{item}}</li>
+    </ul>
+</div>
