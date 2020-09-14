@@ -1,0 +1,23 @@
+#body{
+    margin-top:75pt;
+}
+h1{
+    font-size:60pt;
+}
+button{
+    height: 30pt;
+    width: 30pt;
+}
+.resultStyle{
+    color:white;
+    background-color:black;
+    width: 120pt;
+    text-align: right;
+}
+.buttonWidth{
+    width: 60pt;
+}
+.orange{
+    color:white;
+    background-color:orange;
+}

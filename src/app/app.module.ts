@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'; //追加
 import { RouterModule, Routes } from '@angular/router'; //追加
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,10 +11,12 @@ import { from } from 'rxjs';
 import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
 import { MycheckService } from './mycheck.Service';
+import { CaleComponent } from './cale/cale.component';
+
 
 const routes:Routes = [
   {path:'hello', component: HelloComponent},
-  {path:'msg', component: MessageComponent},
+  {path:'msg/:id', component: MessageComponent},
 ]
 
 @NgModule({
@@ -21,10 +24,12 @@ const routes:Routes = [
     AppComponent,
     HelloComponent,
     MessageComponent,
-    MystyleDirective
+    MystyleDirective,
+    CaleComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -34,7 +39,8 @@ const routes:Routes = [
     )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  // bootstrap: [AppComponent]
+  bootstrap: [CaleComponent]
 })
 export class AppModule {
 

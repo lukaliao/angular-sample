@@ -1,0 +1,27 @@
+<div id="body">
+    <h1>計算機</h1>
+    <P [class] = "resultStyle">{{result}}</P>
+
+    <button (click) = "doClean()">AC</button>
+    <button (click) = "doReverse()" [class] = "buttonStyle">+/-</button>
+    <button (click) = "doCale(3)" [class] = "buttonColor">/</button>
+    <br>
+    <button (click) = "doClick('7')">7</button>
+    <button (click) = "doClick('8')">8</button>
+    <button (click) = "doClick('9')">9</button>
+    <button (click) = "doCale(2)" [class] = "buttonColor">*</button>
+    <br>
+    <button (click) = "doClick('4')">4</button>
+    <button (click) = "doClick('5')">5</button>
+    <button (click) = "doClick('6')">6</button>
+    <button (click) = "doCale(1)" [class] = "buttonColor">-</button>
+    <br>
+    <button (click) = "doClick('1')">1</button>
+    <button (click) = "doClick('2')">2</button>
+    <button (click) = "doClick('3')">3</button>
+    <button (click) = "doCale(0)" [class] = "buttonColor">+</button>
+    <br>
+    <button (click) = "doClick('0')" [class] = "buttonStyle">0</button>
+    <button (click) = "doFloat()">.</button>
+    <button (click) = "doCaleEnd()" [class] = "buttonColor">=</button>
+</div>
