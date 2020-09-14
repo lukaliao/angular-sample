@@ -8,8 +8,8 @@ import { of } from 'rxjs';
 })
 export class CaleComponent implements OnInit {
 
-  result:string
-  cale:number
+  result:string //リセットフラグ
+  cale:number 
   reset:boolean
   num:number
   resultStyle:string
