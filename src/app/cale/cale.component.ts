@@ -8,9 +8,9 @@ import { of } from 'rxjs';
 })
 export class CaleComponent implements OnInit {
 
-  result:string //リセットフラグ
-  cale:number 
-  reset:boolean
+  result:string //表示内容
+  cale:number //計算フラグ（1:+ 2:- 3:* 4:/)
+  reset:boolean //リセットフラグ
   num:number
   resultStyle:string
   buttonStyle:string
