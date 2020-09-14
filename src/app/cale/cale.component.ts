@@ -32,6 +32,8 @@ export class CaleComponent implements OnInit {
     if(this.reset){
       this.result = '0'
     }
+
+    //頭文字0チェック
     if(this.result.substr(0,1) == '0' && this.result.substr(1,1) != '.'){
       if(val == '.'){
         this.result = '0'.concat(val)
